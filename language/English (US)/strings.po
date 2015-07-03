@@ -427,3 +427,11 @@ msgstr "Holiday snowfall theme"
 msgctxt "#31997"
 msgid "Hide channel logos in PVR List/Timeline"
 msgstr "Hide channel logos in PVR List/Timeline"
+
+msgctxt "#31998"
+msgid "Most Played SNES & N64"
+msgstr "Most Played SNES & N64"
+
+msgctxt "#31999"
+msgid "Most Played NES & Genesis"
+msgstr "Most Played NES & Genesis"
