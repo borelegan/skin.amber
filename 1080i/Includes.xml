@@ -880,6 +880,12 @@
       <thumb fallback="special://skin/backgrounds/default/default.jpg">$INFO[Skin.String(CustomHome.8.Background)]</thumb>
       <onclick>$INFO[Skin.String(CustomHome.8.Path)]</onclick>
     </item>
+    <item id="400" description="Games">
+      <visible>System.HasAddon(script.games.rom.collection.browser)</visible>
+      <label>$LOCALIZE[15016]</label>
+      <thumb fallback="special://skin/backgrounds/Games.jpg">$INFO[Skin.String(Games.Background)]</thumb>
+      <onclick>RunScript(script.games.rom.collection.browser)</onclick>	
+    </item>    
     <item id="300" description="PVR">
       <visible>System.GetBool(pvrmanager.enabled)</visible>
       <label>$LOCALIZE[31500]</label>
