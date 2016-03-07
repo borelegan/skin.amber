@@ -31,7 +31,7 @@
       <posy>0</posy>
       <width>1192</width>
       <height>1080</height>
-      <texture>info/InfoRightPanelTop2.png</texture>
+      <texture>dialogs/InfoRightPanelTop2.png</texture>
     </control>
     <control type="image" description="Cover">
       <visible>!Container.Content(episodes)</visible>
@@ -95,7 +95,6 @@
           <font>InfoTitle</font>
           <textcolor>White2</textcolor>
           <align>left</align>
-          <autoscroll time="6000" delay="8000" repeat="8000">true</autoscroll>
           <info>ListItem.Label</info>
         </control>
         <control type="label" description="Path Label">
@@ -176,6 +175,12 @@
                   <visible>!IsEmpty(ListItem.Duration)</visible>
                 </item>
                 <item>
+                  <label>$LOCALIZE[38018]:</label>
+                  <label2>$INFO[ListItem.Userrating]</label2>
+                  <onclick>noop</onclick>
+                  <visible>!IsEmpty(ListItem.Userrating)</visible>
+                </item>
+                <item>
                   <label>$LOCALIZE[563]:</label>
                   <label2>$INFO[ListItem.RatingAndVotes]</label2>
                   <onclick>noop</onclick>
@@ -219,6 +224,12 @@
                   <label2>$INFO[ListItem.Year]</label2>
                   <onclick>noop</onclick>
                   <visible>!IsEmpty(ListItem.Year)</visible>
+                </item>
+                 <item>
+                  <label>$LOCALIZE[38018]:</label>
+                  <label2>$INFO[ListItem.Userrating]</label2>
+                  <onclick>noop</onclick>
+                  <visible>!IsEmpty(ListItem.Userrating)</visible>
                 </item>
                 <item>
                   <label>$LOCALIZE[563]:</label>
@@ -283,6 +294,12 @@
                   <onclick>noop</onclick>
                   <visible>!IsEmpty(ListItem.Duration)</visible>
                 </item>
+                 <item>
+                  <label>$LOCALIZE[38018]:</label>
+                  <label2>$INFO[ListItem.Userrating]</label2>
+                  <onclick>noop</onclick>
+                  <visible>!IsEmpty(ListItem.Userrating)</visible>
+                </item>
                 <item>
                   <label>$LOCALIZE[563]:</label>
                   <label2>$INFO[ListItem.Rating]</label2>
@@ -346,6 +363,12 @@
                   <onclick>noop</onclick>
                   <visible>!IsEmpty(ListItem.Duration)</visible>
                 </item>
+                 <item>
+                  <label>$LOCALIZE[38018]:</label>
+                  <label2>$INFO[ListItem.Userrating]</label2>
+                  <onclick>noop</onclick>
+                  <visible>!IsEmpty(ListItem.Userrating)</visible>
+                </item>
               </content>
             </control>
           </control>
@@ -386,7 +409,6 @@
           <itemgap>30</itemgap>
           <orientation>horizontal</orientation>
           <align>left</align>
-          <aligny>center</aligny>
           <control type="button">
             <visible>!IsEmpty(ListItem.VideoResolution)</visible>
             <height>36</height>
@@ -407,7 +429,7 @@
             <width>102</width>
             <aspectratio>keep</aspectratio>
             <colordiffuse>Silver</colordiffuse>
-            <texture aligny="top">$INFO[ListItem.VideoCodec,badges/video/,.png]</texture>
+            <texture>$INFO[ListItem.VideoCodec,badges/video/,.png]</texture>
           </control>
           <control type="image">
             <visible>!IsEmpty(ListItem.AudioChannels)</visible>
@@ -519,7 +541,6 @@
           <label>$LOCALIZE[344]</label>
           <onclick>Control.SetFocus(50)</onclick>
           <texturefocus>-</texturefocus>
-          <alttexturefocus>-</alttexturefocus>
         </control>
         <control type="button" id="6" description="Refresh">
           <height>54</height>
@@ -529,6 +550,16 @@
           <textcolor>White</textcolor>
           <focusedcolor>Highlight</focusedcolor>
           <label>$LOCALIZE[184]</label>
+          <texturefocus>-</texturefocus>
+        </control>
+        <control type="button" id="7" description="Set my Rating">
+          <height>54</height>
+          <width>230</width>
+          <align>center</align>
+          <font>Details</font>
+          <textcolor>White</textcolor>
+          <focusedcolor>Highlight</focusedcolor>
+          <label>$LOCALIZE[38023]</label>
           <texturefocus>-</texturefocus>
         </control>
         <control type="button" id="10" description="Get Art">
@@ -588,8 +619,8 @@
             <aligny>center</aligny>
             <scroll>false</scroll>
             <font>InfoPlot</font>
-            <info>ListItem.Label</info>
-          </control>
+            <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+         </control>
         </itemlayout>
         <focusedlayout height="40" width="700">
           <control type="image">
@@ -608,8 +639,8 @@
             <font>InfoPlot</font>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>Highlight</textcolor>
-            <info>ListItem.Label</info>
+            <selectedcolor>white</selectedcolor>
+            <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
           </control>
         </focusedlayout>
       </control>

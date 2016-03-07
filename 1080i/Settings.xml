@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol always="true">9000</defaultcontrol>
-  <allowoverlay>no</allowoverlay>
   <backgroundcolor>0</backgroundcolor>
   <controls>
     <include>Settings_Art</include>
@@ -13,7 +12,7 @@
         <include>Panel_Size</include>
         <texture>dialogs/AddonSettingsBG.png</texture>
       </control>
-      <control type="label" description="XBMC settings">
+      <control type="label" description="Kodi settings">
         <visible>Container(9000).HasFocus(1)</visible>
         <posx>650</posx>
         <posy>117</posy>
@@ -264,13 +263,13 @@
           <ondown>500</ondown>
           <onleft>9001</onleft>
           <itemgap>0</itemgap>
-          <control type="button" id="501" description="Sys info">
+          <control type="button" id="501" description="System information">
             <font>ListDetails</font>
             <width>322</width>
             <label>$LOCALIZE[138]</label>
             <onclick>activatewindow(systeminfo)</onclick>
           </control>
-          <control type="button" id="502" description="Wether">
+          <control type="button" id="502" description="Weather">
             <font>ListDetails</font>
             <width>322</width>
             <label>$LOCALIZE[8]</label>
@@ -287,6 +286,13 @@
             <width>322</width>
             <label>$LOCALIZE[10003]</label>
             <onclick>ActivateWindow(filemanager)</onclick>
+          </control>
+            <control type="button" id="505" description="Events">
+            <font>ListDetails</font>
+            <width>322</width>
+            <label>$LOCALIZE[14111]</label>
+            <onclick>ActivateWindow(EventLog,events://,return)</onclick>
+            <visible>system.getbool(eventlog.enabled)</visible>
           </control>
         </control>
         <!--9000 2-->
@@ -480,19 +486,31 @@
               <label2>$LOCALIZE[106]</label2>
               <onclick>Skin.ToggleSetting(HideEPGLogos)</onclick>
             </item>
-            <item id="16" description="Holiday">
+            <item id="16" description="Show lock\master status in title bar">
+              <visible>Skin.HasSetting(ShowMasterLockTitle)</visible>
+              <label>$LOCALIZE[31998]</label>
+              <label2>$LOCALIZE[107]</label2>
+              <onclick>Skin.ToggleSetting(ShowMasterLockTitle)</onclick>
+            </item>
+            <item id="16" description="Show lock\master status in title bar">
+              <visible>!Skin.HasSetting(ShowMasterLockTitle)</visible>
+              <label>$LOCALIZE[31998]</label>
+              <label2>$LOCALIZE[106]</label2>
+              <onclick>Skin.ToggleSetting(ShowMasterLockTitle)</onclick>
+            </item>
+            <item id="17" description="Holiday">
               <visible>Skin.HasSetting(holiday)</visible>
               <label>$LOCALIZE[31996]</label>
               <label2>[COLOR=Highlight]$LOCALIZE[305][/COLOR]</label2>
               <onclick>Skin.ToggleSetting(holiday)</onclick>
             </item>
-            <item id="16" description="Holiday">
+            <item id="17" description="Holiday">
               <visible>!Skin.HasSetting(holiday)</visible>
               <label>$LOCALIZE[31996]</label>
               <label2>$LOCALIZE[1223]</label2>
               <onclick>Skin.ToggleSetting(holiday)</onclick>
             </item>
-            <item id="17" description="Reset Skin">
+            <item id="18" description="Reset Skin">
               <label>$LOCALIZE[31038]</label>
               <onclick>Skin.ResetSettings</onclick>
               <onclick>XBMC.ReloadSkin()</onclick>
@@ -518,7 +536,7 @@
             <aspectratio>keep</aspectratio>
             <texture>OverlayUnwatched.png</texture>
           </control>
-          <control type="image" description="UnWatched marks">
+          <control type="image" description="InProgress marks">
             <posx>1590</posx>
             <posy>270</posy>
             <width>26</width>
@@ -1693,6 +1711,18 @@
             <item id="2" description="Library stats">
               <visible>!Skin.HasSetting(Show_Library_Count)</visible>
               <label>$LOCALIZE[31978]</label>
+              <label2>$LOCALIZE[106]</label2>
+              <onclick>Skin.ToggleSetting(Show_Library_Count)</onclick>
+			</item>
+			<item id="3" description="Static Menu">
+              <visible>Skin.HasSetting(Show_Library_Count)</visible>
+              <label>$LOCALIZE[31363]</label>
+              <label2>$LOCALIZE[107]</label2>
+              <onclick>Skin.ToggleSetting(Show_Library_Count)</onclick>
+            </item>
+            <item id="3" description="Static Menu">
+              <visible>!Skin.HasSetting(Show_Library_Count)</visible>
+              <label>$LOCALIZE[31363]</label>
               <label2>$LOCALIZE[106]</label2>
               <onclick>Skin.ToggleSetting(Show_Library_Count)</onclick>
             </item>
